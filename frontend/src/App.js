@@ -54,8 +54,8 @@ function App() {
     };
 
     return(
-        <div style={{ padding: 20, fontFamily: "Segoe UI, sans-serif", backgroundColor: "rgb(  7,  19,  34)" }}>
-            <h1>Just A Coding Assitant</h1>
+        <div style={{ padding: 20, backgroundColor: "rgb(  7,  19,  34)" }}>
+            <h1 style={{ fontSize: "48px" }}>JACA</h1>
             <Editor
                 height="300px"
                 language={language}
@@ -69,7 +69,7 @@ function App() {
                 }}
                 theme="vs-dark" // `vs-dark` or `light`
                 options={{
-                    fontSize: 14,
+                    fontSize: 16,
                     minimap: { enabled: false },
                     automaticLayout: true
                 }}
@@ -123,8 +123,8 @@ function App() {
                 </div>
             </div>
             {/* About Section */}
-            <div style={{ marginTop: "40px", padding: "20px", borderTop: "1px solid #eee" }}>
-                <h2 style={{ color: "rgb(53, 127, 255)", marginBottom: "15px" }}>About</h2>
+            <div style={{ marginTop: "40px", padding: "20px", borderTop: "1px solid rgb(53, 127, 255)" }}>
+                <h2>About</h2>
                 <p style={{ lineHeight: "1.6", color: "#fff" }}>
                     {aboutDescription}
                 </p>

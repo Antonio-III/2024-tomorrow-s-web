@@ -4,17 +4,19 @@ import os
 import google.genai as genai
 from dotenv import load_dotenv
 
-INSTRUCTION = """
-You are a coding assistant. Help the user with their request if it is in relation to coding or programming. Do provide an explanation for how the code works. 
+DEFAULT_MODEL = "gemini-2.0-flash"
 
-If the user queries something unrelated to coding, introduce yourself as a coding assistant and that you are willing to help on coding or programming questions.
+INSTRUCTION = f"""
+You are a coding assistant. Help the user with their request if it is in relation to programming. Do provide an explanation for how the code works. 
+
+If the user queries something unrelated to coding, respond with this: "Hi! I am JACA. I am a {DEFAULT_MODEL} model. I am prompt engineered to assist in programming. Feel free to put your code in the Editor or ask a programming question!"
 
 Below are the user's code (if any), and their query.
 """
 
 TRIPLE_DASH = "\n---\n"
 
-DEFAULT_MODEL = "gemini-2.0-flash"
+
 
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", 5000))
@@ -28,7 +30,8 @@ app = Flask(__name__) # Argument can be "backend" (parent folder name) or __name
 
 CORS(app)
 
-# Set up the Gemini client by setting up the API key.
+# Set up the Gemini client by setting up the API key. 
+# This way of getting the environment variable works locally and on Render.
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
