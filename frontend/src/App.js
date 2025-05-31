@@ -1,4 +1,5 @@
-// import logo from './logo.svg';
+import logo from "./logo.svg";
+import githubLogo from "./github-mark-white.svg";
 import './App.css';
 
 import React, { useState } from "react";
@@ -12,6 +13,8 @@ import hljs from "highlight.js/lib/common";
 const renderBackendUrl = process.env.REACT_APP_BACKEND_URL;
 
 const llmModel = process.env.REACT_APP_LLM;
+
+const gitHubLink = process.env.REACT_APP_GITHUB_URL;
 
 const aboutDescription = `Project Just A Coding Assistant (JACA) is a full-stack web service that uses Google's ${llmModel} Model. The Model is prompt engineered to answer questions related to coding. The Model reminds that it's JACA when asked about anything else. This is because I want to use the VS Code editor and it would be unfortunate if it wasn't used.`;
 
@@ -55,6 +58,20 @@ function App() {
 
     return(
         <div style={{ padding: 20, backgroundColor: "rgb(  7,  19,  34)" }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <a href="./"> 
+                    <img 
+                        src={logo} 
+                        alt="JACA Logo"
+                        />
+                    </a>
+                <a href={gitHubLink}> 
+                    <img 
+                        src={githubLogo} 
+                        alt="Github link"
+                    />
+                </a>
+            </div>
             <h1 style={{ fontSize: "48px" }}>JACA</h1>
             <Editor
                 height="300px"
