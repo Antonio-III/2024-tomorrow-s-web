@@ -16,7 +16,7 @@ const llmModel = process.env.REACT_APP_LLM;
 
 const gitHubLink = process.env.REACT_APP_GITHUB_URL;
 
-const aboutDescription = `Project Just A Coding Assistant (JACA) is a full-stack web service that uses Google's ${llmModel} Model. The Model is prompt engineered to answer questions related to coding. The Model reminds that it's JACA when asked about anything else. This is because I want to use the VS Code editor and it would be unfortunate if it wasn't used.`;
+const aboutDescription = `Project Just A Coding Assistant (JACA) is a full-stack web service that uses Google's ${llmModel} Model. The Model is prompt engineered to answer questions related to coding. The Model reminds that it's JACA when asked about anything else. This is because I want to use the VS Code editor and it would be unfortunate if it wasn't used. Note that sending your first query might take longer than subsequent queries due to limitations of free hosting on Render.`;
 
 
 
