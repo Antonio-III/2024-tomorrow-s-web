@@ -111,7 +111,7 @@ function App() {
                         whiteSpace: "pre-wrap",
                         border: "none",
                         padding: "10px",
-                        backgroundColor: "rgb( 30,  30,  30)", // same color as vs-dark
+                        backgroundColor: "rgb( 0,  0,  0)", // same color as vs-dark
                         color: "#fff",
                     }}
                 >
