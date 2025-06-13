@@ -22,7 +22,7 @@ const aboutDescription = `Project Just A Coding Assistant (JACA) is a full-stack
 // Normal Javascript function. It is called within the App component.
 function detectLanguage(code) {
     const result = hljs.highlightAuto(code);
-    return result.language || "plaintext";
+    return result.language || "python";
 } 
 
 // App Component; The HTML that users will see when they go on the site.
