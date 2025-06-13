@@ -118,17 +118,41 @@ function App() {
                         components={{
                             code({ node, inline, className, children, ...props}) {
                                 const match = /language-(\w+)/.exec(className || "");
-                                return !inline && match ? (
-                                    <SyntaxHighlighter
-                                        style={atomDark}
-                                        language={match[1]}
-                                        PreTag="div"
-                                        {...props}
-                                    >
-                                        {String(children).replace(/\n$/, "")}
-                                    </SyntaxHighlighter>
-                                ) : (
-                                    <code className={className} {...props}>
+                                const codeString = String(children).replace(/\n$/, "");
+                                if (!inline && match) {
+                                    return (
+                                        <div style={{ position: "relative" }}>
+                                            <button
+                                                onClick={() => navigator.clipboard.writeText(codeString)}
+                                                style={{
+                                                    position: "absolute",
+                                                    top: 8,
+                                                    right: 8,
+                                                    zIndex: 1,
+                                                    padding: "5px 10px",
+                                                    backgroundColor: "#357fff",
+                                                    color: "white",
+                                                    border: "none",
+                                                    borderRadius: "4px",
+                                                    cursor: "pointer",
+                                                    fontSize: "12px"
+                                                }}
+                                            >
+                                                Copy
+                                            </button>
+                                            <SyntaxHighlighter
+                                                style={atomDark}
+                                                language={match[1]}
+                                                PreTag="div"
+                                                {...props}
+                                            >
+                                                {codeString}
+                                            </SyntaxHighlighter>
+                                        </div>
+                                    );
+                                }
+                                return (
+                                    <code className="{className}" {...props}>
                                         {children}
                                     </code>
                                 );
