@@ -116,9 +116,10 @@ function App() {
                     <ReactMarkdown
                         children={answer}
                         components={{
-                            code({ node, inline, className, children, ...props}) {
+                            code: ({ node, inline, className, children, ...props}) => {
                                 const match = /language-(\w+)/.exec(className || "");
                                 const codeString = String(children).replace(/\n$/, "");
+                                // handle block code tags
                                 if (!inline && match) {
                                     return (
                                         <div style={{ position: "relative" }}>
@@ -151,6 +152,7 @@ function App() {
                                         </div>
                                     );
                                 }
+                                // handle inline code tags
                                 return (
                                     <code className={className} {...props}>
                                         {children}
